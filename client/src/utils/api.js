@@ -1,6 +1,11 @@
-import { useAuth } from "../context/AuthContext";
 
-export function apiRequest(url, method = "GET", body = null, token) {
+export const API_BASE =
+  import.meta.env.VITE_API_BASE ;
+
+export async function apiRequest(path, method = "GET", body = null, token) {
+  // если передали только путь — приклеиваем базовый URL
+  const url = path.startsWith("http") ? path : `${API_BASE}${path}`;
+
   const options = {
     method,
     headers: {
@@ -12,15 +17,22 @@ export function apiRequest(url, method = "GET", body = null, token) {
     options.headers["Authorization"] = `Bearer ${token}`;
   }
 
-  if (body) options.body = JSON.stringify(body);
+  if (body) {
+    options.body = JSON.stringify(body);
+  }
 
-  return fetch(url, options).then(async (res) => {
-    const data = await res.json().catch(() => ({}));
+  const res = await fetch(url, options);
+  let data = {};
 
-    if (!res.ok) {
-      throw new Error(data.message || "API error");
-    }
+  try {
+    data = await res.json();
+  } catch {
+    data = {};
+  }
 
-    return data;
-  });
+  if (!res.ok) {
+    throw new Error(data.message || "API error");
+  }
+
+  return data;
 }
