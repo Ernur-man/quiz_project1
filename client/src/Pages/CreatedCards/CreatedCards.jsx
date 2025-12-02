@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {useAuth } from '../../Context/AuthContext'
+import { useAuth } from '../../context/AuthContext'
 
 import "./created.less";
 
@@ -168,8 +168,8 @@ export default function CreatedCards() {
                   {updatingId === q.id
                     ? "Updating..."
                     : q.is_public
-                    ? "Make Private"
-                    : "Make Public"}
+                      ? "Make Private"
+                      : "Make Public"}
                 </button>
 
                 <button

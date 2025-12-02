@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import "./quiz.less";
-import {useAuth } from '../../Context/AuthContext'
+import { useAuth } from '../../context/AuthContext'
 
 
 const API_BASE = import.meta.env.VITE_API_BASE;
@@ -189,4 +189,3 @@ export default function QuizPage() {
     </main>
   );
 }
-  

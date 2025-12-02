@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./card.less";
-import {useAuth } from '../../Context/AuthContext'
+import { useAuth } from '../../context/AuthContext'
 
 
 const API_BASE = import.meta.env.VITE_API_BASE;

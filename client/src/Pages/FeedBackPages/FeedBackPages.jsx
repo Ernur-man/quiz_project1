@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./feedback.less";
-import {useAuth } from '../../Context/AuthContext'
+import { useAuth } from '../../context/AuthContext'
 
 
-const OWNER_WHATSAPP = "77754473174"; 
+const OWNER_WHATSAPP = "77754473174";
 
 export default function FeedbackPage() {
   const { user } = useAuth();
@@ -55,7 +55,7 @@ ${message}
       text: "Сейчас откроется WhatsApp. Просто нажми «Отправить»."
     });
 
-   
+
   };
 
   return (
