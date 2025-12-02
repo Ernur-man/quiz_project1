@@ -2,7 +2,7 @@
 import { NavLink, Link } from "react-router-dom";
 import "./header.less";
 import { useState } from "react";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../Context/AuthContext";
 
 export default function Header({ cursorEnabled, onToggleCursor }) {
   const [open, setOpen] = useState(false);
